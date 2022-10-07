@@ -2,6 +2,7 @@ import {
   slideFrame,
   removeCurrentActiveClass,
   getCurrentActiveSlide,
+  resetTimer,
 } from "./slideShowFunctionality.js";
 
 const navSlider = document.querySelector("ul.navbar");
@@ -16,7 +17,7 @@ function changeSlide(target) {
   if (target.tagName === "LI") {
     const imgIndex = Number(target.dataset.slideId);
     const chosenNextSlide = getArrayOfSlides()[imgIndex];
-    
+
     if (chosenNextSlide.classList.contains("active")) return;
     console.log(chosenNextSlide);
     removeCurrentActiveClass(getCurrentActiveSlide());
@@ -26,4 +27,5 @@ function changeSlide(target) {
 
 navSlider.addEventListener("click", (e) => {
   changeSlide(e.target);
+  resetTimer()
 });
