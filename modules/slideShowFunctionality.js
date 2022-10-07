@@ -14,8 +14,8 @@ function getCurrentActiveSlide() {
   return currentActiveSlide;
 }
 
-function changeNextSlide(currentSlide) {
-  const currentActiveImg = currentSlide;
+function changeNextSlide() {
+  const currentActiveImg = getCurrentActiveSlide();
   removeCurrentActiveClass(currentActiveImg)
 
   if (currentActiveImg.nextElementSibling === null)
@@ -23,8 +23,8 @@ function changeNextSlide(currentSlide) {
   currentActiveImg.nextElementSibling.classList.add("active");
 }
 
-function changePreviousSlide(currentSlide) {
-  const currentActiveImg = currentSlide;
+function changePreviousSlide() {
+  const currentActiveImg = getCurrentActiveSlide();
   removeCurrentActiveClass(currentActiveImg);
 
   if (currentActiveImg.previousElementSibling === null)
@@ -33,9 +33,12 @@ function changePreviousSlide(currentSlide) {
 }
 
 nextSlideArrow.addEventListener("click", () => {
-  changeNextSlide(getCurrentActiveSlide());
+  changeNextSlide();
 });
 
 previousSlideArrow.addEventListener("click", () => {
-  changePreviousSlide(getCurrentActiveSlide());
+  changePreviousSlide();
 });
+
+export {slideFrame, removeCurrentActiveClass, getCurrentActiveSlide}
+

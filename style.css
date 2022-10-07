@@ -57,3 +57,19 @@ img.slide-img {
   width: 40%;
   height: auto;
 }
+#footer,
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.slide-button {
+  list-style: none;
+  width: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
