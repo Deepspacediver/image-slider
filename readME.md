@@ -19,4 +19,6 @@ set timout of 5 seconds to fire "next" function
 reset timer if any of the events is fired
 
 
+When slide is changed, navCarousel for that corresponding slide changes with bgColor and previous active navCarousel is cleared
+
 function “next” and “previous” which will advance to the next or previous slide accordingly. Make the transitions smooth using simple effects.

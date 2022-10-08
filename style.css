@@ -42,7 +42,7 @@ img.slide-img {
   object-fit: cover;
   margin: 0 auto;
   padding: 0;
-  transition: opacity 2s linear;
+  transition: opacity 1.5s linear;
 }
 
 .active {
@@ -73,9 +73,17 @@ img.slide-img {
 }
 .slide-button {
   list-style: none;
+  cursor: pointer;
   width: 20px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
-  cursor: pointer;
+  background-size: 0 0;
+  transition: background-size 1s, background-color 1s;
+}
+
+.current-slide,
+.slide-button:hover {
+  background-size: 100% !important;
+  background-color: black !important;
 }

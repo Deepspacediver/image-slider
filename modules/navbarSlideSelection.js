@@ -3,29 +3,34 @@ import {
   removeCurrentActiveClass,
   getCurrentActiveSlide,
   resetTimer,
+  navSlider,
 } from "./slideShowFunctionality.js";
 
-const navSlider = document.querySelector("ul.navbar");
-
-function getArrayOfSlides() {
+/* function getArrayOfSlides() {
   const imgArray = Array.from(slideFrame.children);
   return imgArray;
 }
-console.log(getArrayOfSlides());
-
+ */
 function changeSlide(target) {
   if (target.tagName === "LI") {
-    const imgIndex = Number(target.dataset.slideId);
-    const chosenNextSlide = getArrayOfSlides()[imgIndex];
+    const navIndex = target.dataset.slideId;
+    const chosenNextSlide = slideFrame.querySelector(
+      `[data-img-index="${navIndex}"]`
+    );
 
     if (chosenNextSlide.classList.contains("active")) return;
-    console.log(chosenNextSlide);
-    removeCurrentActiveClass(getCurrentActiveSlide());
+
+    const currentActiveSlide = getCurrentActiveSlide()
+    removeCurrentActiveClass(currentActiveSlide);
     chosenNextSlide.classList.add("active");
+
+    const previousShownNav = navSlider.querySelector(".current-slide");
+    previousShownNav.classList.remove("current-slide");
+    target.classList.add("current-slide");
   }
 }
 
 navSlider.addEventListener("click", (e) => {
   changeSlide(e.target);
-  resetTimer()
+  resetTimer();
 });
