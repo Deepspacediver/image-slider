@@ -35,16 +35,22 @@ body {
   margin: auto 0;
 }
 img.slide-img {
-  display: none;
+  width: 0;
+  max-height: 0;
+  opacity: 0;
+  position: absolute;
   object-fit: cover;
-  width: 80%;
-  max-height: auto;
   margin: 0 auto;
-  padding: 10px 0 10px 0;
+  padding: 0;
+  transition: opacity 2s linear;
 }
 
 .active {
-  display: flex !important;
+  opacity: 1 !important;
+  position: static !important;
+  width: 80% !important;
+  max-height: 100% !important;
+  padding: 10px 0 10px 0 !important;
 }
 
 .arrow-wrapp {
@@ -56,6 +62,7 @@ img.slide-img {
 .arrow-wrapp img {
   width: 40%;
   height: auto;
+  cursor: pointer;
 }
 #footer,
 .navbar {
@@ -64,12 +71,11 @@ img.slide-img {
   justify-content: center;
   gap: 10px;
 }
-
-
 .slide-button {
   list-style: none;
   width: 20px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
+  cursor: pointer;
 }

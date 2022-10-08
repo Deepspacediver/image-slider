@@ -17,7 +17,8 @@ function changeNextSlide() {
   const currentActiveImg = getCurrentActiveSlide();
   removeCurrentActiveClass(currentActiveImg);
 
-  if (currentActiveImg.nextElementSibling === null) slideFrame.firstElementChild.classList.add("active")
+  if (currentActiveImg.nextElementSibling === null)
+    slideFrame.firstElementChild.classList.add("active");
   else currentActiveImg.nextElementSibling.classList.add("active");
 }
 
@@ -30,22 +31,26 @@ function changePreviousSlide() {
   else currentActiveImg.previousElementSibling.classList.add("active");
 }
 
-let autoChangeSlide = setInterval(changeNextSlide, 5000)
-function resetTimer() {
-  clearInterval(autoChangeSlide)
-  autoChangeSlide = setInterval(changeNextSlide, 5000)
+let autoChangeSlide = setInterval(changeNextSlide, 5000);
 
+function resetTimer() {
+  clearInterval(autoChangeSlide);
+  autoChangeSlide = setInterval(changeNextSlide, 5000);
 }
 
 nextSlideArrow.addEventListener("click", () => {
   changeNextSlide();
-  resetTimer()
+  resetTimer();
 });
 
 previousSlideArrow.addEventListener("click", () => {
   changePreviousSlide();
-  resetTimer()
-  
+  resetTimer();
 });
 
-export { slideFrame, removeCurrentActiveClass, getCurrentActiveSlide, resetTimer };
+export {
+  slideFrame,
+  removeCurrentActiveClass,
+  getCurrentActiveSlide,
+  resetTimer,
+};
